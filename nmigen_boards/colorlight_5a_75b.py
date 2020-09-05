@@ -109,31 +109,16 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
     @property
     def file_templates(self):
         return {
-            # **super().file_templates,
-            # "{{name}}-openocd.cfg": r"""
-            # interface ftdi
-            # {# FTDI descriptors is identical between non-5G and 5G recent Versa boards #}
-            # ftdi_device_desc "Lattice ECP5_5G VERSA Board"
-            # ftdi_vid_pid 0x0403 0x6010
-            # ftdi_channel 0
-            # ftdi_layout_init 0xfff8 0xfffb
-            # reset_config none
-            # adapter_khz 25000
-
-            # # ispCLOCK device (unusable with openocd and must be bypassed)
-            # #jtag newtap ispclock tap -irlen 8 -expected-id 0x00191043
-            # # ECP5 device
-            # {% if "5G" in platform.device -%}
-            # jtag newtap ecp5 tap -irlen 8 -expected-id 0x81112043 ; # LFE5UM5G-45F
-            # {% else -%}
-            # jtag newtap ecp5 tap -irlen 8 -expected-id 0x01112043 ; # LFE5UM-45F
-            # {% endif %}
-            # """
-
             **super().file_templates,
             "{{name}}-openocd.cfg": r"""
-            interface vsllink
-            adapter_khz 200
+            interface ftdi
+            ftdi_vid_pid 0x0403 0x6010
+            ftdi_channel 0
+            ftdi_layout_init 0xfff8 0xfffb
+
+            reset_config none
+            adapter_khz 25000
+
             transport select jtag
             jtag newtap lfe5u25 tap -expected-id 0x41111043 -irlen 8 -irmask 0xFF -ircapture 0x05
             """
@@ -145,7 +130,7 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
                 as (config_filename, vector_filename):
             subprocess.check_call([openocd,
                 "-f", config_filename,
-                "-c", "init; scan_chain; svf -quiet {}; exit".format(vector_filename)
+                "-c", "init; svf -quiet {}; exit".format(vector_filename)
             ])
 
 
