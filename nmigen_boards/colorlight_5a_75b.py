@@ -100,7 +100,7 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
         Connector("pmod", 0, "L2  J5  B16 F12 - - F15 K1  K2  J14 - -"), # PMOD1
         Connector("pmod", 1, "C2  G2  F3  H3  - - K3  H5  G3  F1  - -"), # PMOD2
         Connector("pmod", 2, "H4  L5  K4  J4  - - P1  K5  E3  G1  - -"), # PMOD3
-        Connector("pmod", 3, "M9  R2  T6  R1  - - R6  M8  P4  F2  - -"), # PMOD4
+        Connector("pmod", 3, "M9  P4  T6  R1  - - R6  M8  R2  F2  - -"), # PMOD4
         Connector("pmod", 4, "J12 N12 K15 M11 - - G16 N11 L16 P12 - -"), # PMOD5
         Connector("pmod", 5, "G14 H13 K16 H15 - - G15 H12 J16 J15 - -"), # PMOD6
         Connector("pmod", 6, "E13 A14 B14 H14 - - A13 A14 F16 J13 - -"), # PMOD7
@@ -117,7 +117,7 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
             ftdi_layout_init 0xfff8 0xfffb
 
             reset_config none
-            adapter_khz 25000
+            adapter_khz 24000
 
             transport select jtag
             jtag newtap lfe5u25 tap -expected-id 0x41111043 -irlen 8 -irmask 0xFF -ircapture 0x05
