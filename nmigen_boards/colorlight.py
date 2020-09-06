@@ -3,7 +3,7 @@ import subprocess
 
 from nmigen.build import *
 from nmigen.vendor.lattice_ecp5 import *
-from resources import *
+from .resources import *
 
 
 __all__ = ["Colorlight5A75BV7_0Platform"]
