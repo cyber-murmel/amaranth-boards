@@ -30,8 +30,8 @@ class Colorlight5A75BV7_0Platform(LatticeECP5Platform):
         *SPIFlashResources(0,
             cs="N8",
             clk="U3",
-            miso="T7",
-            mosi="T8",
+            cipo="T7",
+            copi="T8",
             attrs=Attrs(IO_STANDARD="LVCMOS33")
         ),
 
