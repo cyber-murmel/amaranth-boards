@@ -6,10 +6,10 @@ from nmigen.vendor.lattice_ecp5 import *
 from resources import *
 
 
-__all__ = ["Colorlight5A75B"]
+__all__ = ["Colorlight5A75BV7_0Platform"]
 
 
-class Colorlight5A75BPlatform(LatticeECP5Platform):
+class Colorlight5A75BV7_0Platform(LatticeECP5Platform):
     device      = "LFE5U-25F"
     package     = "BG256"
     speed       = "6"
@@ -134,4 +134,4 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
 
 if __name__ == "__main__":
     from test.blinky import *
-    Colorlight5A75BPlatform().build(Blinky(), do_program=True)
+    Colorlight5A75BV7_0Platform().build(Blinky(), do_program=True)
