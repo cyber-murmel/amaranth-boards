@@ -19,8 +19,6 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
         Resource("rst", 0, PinsN("M13", dir="i"), Attrs(IO_TYPE="LVCMOS33")),
         Resource("clk25", 0, PinsN("P6", dir="i"), Clock(25e6), Attrs(IO_TYPE="LVCMOS33")),
 
-        # *ButtonResources(pins="M13", invert=True, attrs=Attrs(IO_STANDARD="LVCMOS33")),
-
         *LEDResources(pins="P11", attrs=Attrs(IO_TYPE="LVCMOS25")),
 
         UARTResource(0,
@@ -96,7 +94,7 @@ class Colorlight5A75BPlatform(LatticeECP5Platform):
         Connector("HUB75", 5, "K16 J15 J16 - J12 H15 G16 F15 L2 K1 J5 K2 B16 J14 F12 -"), # J6
         Connector("HUB75", 6, "H13 J13 H12 - G14 H14 G15 F15 L2 K1 J5 K2 B16 J14 F12 -"), # J7
         Connector("HUB75", 7, "A15 F16 A14 - E13 B14 A13 F15 L2 K1 J5 K2 B16 J14 F12 -"), # J8
-        
+        # in reference to https://raw.githubusercontent.com/cyber-murmel/chubby-hat/master/hardware/chubby%20hat/plot/pdf/chubby%20hat.pdf#page=1
         Connector("pmod", 0, "L2  J5  B16 F12 - - F15 K1  K2  J14 - -"), # PMOD1
         Connector("pmod", 1, "C2  G2  F3  H3  - - K3  H5  G3  F1  - -"), # PMOD2
         Connector("pmod", 2, "H4  L5  K4  J4  - - P1  K5  E3  G1  - -"), # PMOD3
